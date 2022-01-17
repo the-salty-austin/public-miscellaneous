@@ -6,7 +6,7 @@ from email.header import Header
 import time
 
 receivers = []
-with open('0117.txt', mode='r', encoding='utf-8') as f:
+with open('emails.txt', mode='r', encoding='utf-8') as f:
     for line in f:
         line = line.strip()
         # bcc_r.append( line )
@@ -44,6 +44,7 @@ with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
     smtp.ehlo()
 
     smtp.login(config.email, config.pwd)
+    
     for rcpt in receivers:
         try:
             # smtp.sendmail(config.email, receiver+bcc_r, msg.as_string())
